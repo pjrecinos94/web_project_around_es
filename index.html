@@ -2,229 +2,157 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <meta content="ie=edge" http-equiv="X-UA-Compatible" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Página interactiva en la que los usuarios pueden añadir, eliminar o dar me gusta a las fotos."
+    />
+    <meta name="author" content="Pablo Recinos" />
+    <meta name="keywords" content="red social, fotografía, Estados Unidos" />
     <title>Around The U.S.</title>
-    <link href="./pages/index.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./pages/index.css" />
   </head>
-  <body class="page">
-    <div class="page__content">
-      <header class="header page__section">
-        <img
-          alt="Logotipo Around The U.S."
-          class="logo header__logo"
-          src="./images/logo.svg"
-        />
-      </header>
-      <main class="content">
-        <section class="profile page__section">
-          <img class="profile__image" src="./images/avatar.jpg" alt="Avatar" />
-          <div class="profile__info">
-            <h1 class="profile__title">Jacques Cousteau</h1>
-            <button
-              aria-label="Editar perfil"
-              class="profile__edit-button"
-              type="button"
-            ></button>
-            <p class="profile__description">Explorador</p>
+
+  <body>
+    <div class="page">
+      <div class="popup" id="popup__edit-profile">
+        <div class="popup__container">
+          <button class="popup__close-button"></button>
+          <h2 class="popup__title">Editar perfil</h2>
+          <form class="popup__form" name="edit-form" novalidate>
+            <fieldset class="popup__set">
+              <label class="popup__field">
+                <input
+                  name="name-input"
+                  id="name-input"
+                  placeholder="Nombre"
+                  type="text"
+                  minlength="2"
+                  maxlength="40"
+                  class="popup__input popup__name-input"
+                  required
+                />
+                <span
+                  class="popup__error-message popup__name-input-error"
+                ></span>
+              </label>
+              <label class="popup__field">
+                <input
+                  name="about-input"
+                  id="about-input"
+                  placeholder="Acerca de mí"
+                  type="text"
+                  minlength="2"
+                  maxlength="200"
+                  class="popup__input popup__about-input"
+                  required
+                />
+                <span
+                  class="popup__error-message popup__about-input-error"
+                ></span>
+              </label>
+            </fieldset>
+            <button type="submit" class="popup__submit-button">Guardar</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="popup" id="popup__add-card">
+        <div class="popup__container">
+          <button class="popup__close-button"></button>
+          <h2 class="popup__title">Nuevo lugar</h2>
+          <form class="popup__form" name="add-form" novalidate>
+            <fieldset class="popup__set">
+              <label class="popup__field">
+                <input
+                  name="title-input"
+                  id="title-input"
+                  placeholder="Título"
+                  type="text"
+                  minlength="2"
+                  maxlength="30"
+                  class="popup__input popup__title-input"
+                  required
+                />
+                <span
+                  class="popup__error-message popup__title-input-error"
+                ></span>
+              </label>
+              <label class="popup__field">
+                <input
+                  name="url-input"
+                  id="url-input"
+                  placeholder="Enlace a la imagen"
+                  type="url"
+                  class="popup__input popup__url-input"
+                  required
+                />
+                <span
+                  class="popup__error-message popup__url-input-error"
+                ></span>
+              </label>
+            </fieldset>
+            <button type="submit" class="popup__submit-button">Guardar</button>
+          </form>
+        </div>
+      </div>
+
+      <template id="popup__image">
+        <div class="popup__image popup" id="places-popup">
+          <div class="popup__image-container">
+            <button class="popup__image-close-button"></button>
+            <img class="popup__image-content" />
+            <p class="popup__image-title"></p>
           </div>
-          <button
-            aria-label="Agregar tarjeta"
-            class="profile__add-button"
-            type="button"
-          ></button>
+        </div>
+      </template>
+
+      <header class="header">
+        <img
+          src="./images/around-the-us_logo.svg"
+          alt="Logotipo de Around The U.S."
+          class="header__logo"
+        />
+        <hr class="header__line" />
+      </header>
+
+      <main class="content">
+        <section class="profile">
+          <img
+            src="./images/profile_picture.jpg"
+            alt="Foto de perfil"
+            class="profile__avatar"
+          />
+          <div class="profile__info">
+            <div class="profile__top-line">
+              <h1 class="profile__name">Jacques Cousteau</h1>
+              <button class="profile__edit-button"></button>
+            </div>
+            <p class="profile__bio">Explorador</p>
+          </div>
+          <button class="profile__add-button"></button>
         </section>
-        <section class="cards page__section">
-          <ul class="cards__list">
-            <li class="card">
-              <img
-                class="card__image"
-                src="https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_yosemite.jpg"
-                alt="Valle de Yosemite"
-              />
-              <button
-                aria-label="Eliminar tarjeta"
-                class="card__delete-button"
-                type="button"
-              ></button>
-              <div class="card__description">
-                <h2 class="card__title">Valle de Yosemite</h2>
-                <button
-                  aria-label="Botón Me gusta"
-                  class="card__like-button"
-                  type="button"
-                ></button>
+
+        <section class="places">
+          <template id="place__card">
+            <div class="places__card">
+              <button class="places__delete-button"></button>
+              <img class="places__image" />
+              <div class="places__info">
+                <h2 class="places__title"></h2>
+                <button class="places__like-button"></button>
               </div>
-            </li>
-            <li class="card">
-              <img
-                class="card__image"
-                src="https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_lake-louise.jpg"
-                alt="Lago Louise"
-              />
-              <button
-                aria-label="Eliminar tarjeta"
-                class="card__delete-button"
-                type="button"
-              ></button>
-              <div class="card__description">
-                <h2 class="card__title">Lago Louise</h2>
-                <button
-                  aria-label="Botón Me gusta"
-                  class="card__like-button"
-                  type="button"
-                ></button>
-              </div>
-            </li>
-            <li class="card">
-              <img
-                class="card__image"
-                src="https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_bald-mountains.jpg"
-                alt="Montañas Calvas"
-              />
-              <button
-                aria-label="Eliminar tarjeta"
-                class="card__delete-button"
-                type="button"
-              ></button>
-              <div class="card__description">
-                <h2 class="card__title">Montañas Calvas</h2>
-                <button
-                  aria-label="Botón Me gusta"
-                  class="card__like-button"
-                  type="button"
-                ></button>
-              </div>
-            </li>
-            <li class="card">
-              <img
-                class="card__image"
-                src="https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_latemar.jpg"
-                alt="Latemar"
-              />
-              <button
-                aria-label="Eliminar tarjeta"
-                class="card__delete-button"
-                type="button"
-              ></button>
-              <div class="card__description">
-                <h2 class="card__title">Latemar</h2>
-                <button
-                  aria-label="Botón Me gusta"
-                  class="card__like-button"
-                  type="button"
-                ></button>
-              </div>
-            </li>
-            <li class="card">
-              <img
-                class="card__image"
-                src="https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_vanoise.jpg"
-                alt="Parque Nacional de la Vanoise"
-              />
-              <button
-                aria-label="Eliminar tarjeta"
-                class="card__delete-button"
-                type="button"
-              ></button>
-              <div class="card__description">
-                <h2 class="card__title">Parque Nacional de la Vanoise</h2>
-                <button
-                  aria-label="Botón Me gusta"
-                  class="card__like-button"
-                  type="button"
-                ></button>
-              </div>
-            </li>
-            <li class="card">
-              <img
-                class="card__image"
-                src="https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_lago.jpg"
-                alt="Lago di Braies"
-              />
-              <button
-                aria-label="Eliminar tarjeta"
-                class="card__delete-button"
-                type="button"
-              ></button>
-              <div class="card__description">
-                <h2 class="card__title">Lago di Braies</h2>
-                <button
-                  aria-label="Botón Me gusta"
-                  class="card__like-button"
-                  type="button"
-                ></button>
-              </div>
-            </li>
-          </ul>
+            </div>
+          </template>
         </section>
       </main>
-      <footer class="footer page__section">
-        <p class="footer__copyright">© 2025 Around The U.S.</p>
+
+      <footer class="footer">
+        <p class="footer__copyright">&copy; 2024 Around The U.S.</p>
       </footer>
-      <div class="popup" id="edit-popup">
-        <div class="popup__content">
-          <button
-            aria-label="Cerrar ventana emergente"
-            class="popup__close"
-            type="button"
-          ></button>
-          <h3 class="popup__title">Editar perfil</h3>
-          <form class="popup__form" id="edit-profile-form">
-            <input
-              class="popup__input popup__input_type_name"
-              name="name"
-              placeholder="Nombre"
-              type="text"
-            />
-            <input
-              class="popup__input popup__input_type_description"
-              name="description"
-              placeholder="Acerca de mí"
-              type="text"
-            />
-            <button class="button popup__button" type="submit">Guardar</button>
-          </form>
-        </div>
-      </div>
-      <div class="popup" id="new-card-popup">
-        <div class="popup__content">
-          <button
-            aria-label="Cerrar ventana emergente"
-            class="popup__close"
-            type="button"
-          ></button>
-          <h3 class="popup__title">Nuevo lugar</h3>
-          <form class="popup__form" id="new-card-form">
-            <input
-              class="popup__input popup__input_type_card-name"
-              name="place-name"
-              placeholder="Título"
-              required
-              type="text"
-            />
-            <input
-              class="popup__input popup__input_type_url"
-              name="link"
-              placeholder="Enlace a la imagen"
-              required
-              type="url"
-            />
-            <button class="button popup__button" type="submit">Crear</button>
-          </form>
-        </div>
-      </div>
-      <div class="popup" id="image-popup">
-        <div class="popup__content popup__content_content_image">
-          <button
-            aria-label="Cerrar ventana emergente"
-            class="popup__close"
-            type="button"
-          ></button>
-          <img alt="" class="popup__image" src="#" />
-          <p class="popup__caption"></p>
-        </div>
-      </div>
     </div>
+
+    <script type="module" src="./scripts/index.js"></script>
+    <script type="module" src="./scripts/validate.js"></script>
   </body>
 </html>

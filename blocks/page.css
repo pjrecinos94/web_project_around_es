@@ -1,27 +1,12 @@
 .page {
-  background: #000;
-}
-
-.page__content {
-  padding: 0 40px;
-  background-color: black;
+  max-width: 100%;
   min-height: 100vh;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background-color: #000;
+  font-family: "Inter", Arial, sans-serif;
+  font-style: normal;
+  font-size: 16px;
   display: flex;
   flex-direction: column;
-}
-
-.page__section {
-  width: 100%;
-  max-width: 880px;
-  box-sizing: border-box;
-  position: relative;
-  margin: 0 auto;
-}
-
-@media screen and (max-width: 720px) {
-  .page__content {
-    padding: 0 20px;
-  }
+  align-items: center;
+  color: #fff;
 }
