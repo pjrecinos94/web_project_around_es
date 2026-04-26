@@ -1,6 +1,6 @@
 const showInputError = (formElement, inputElement, errorMessage) => {
   const errorElement = formElement.querySelector(
-    `.popup__${inputElement.id}-error`
+    `.popup__${inputElement.id}-error`,
   );
   inputElement.classList.add("popup__input-error");
   errorElement.textContent = errorMessage;
@@ -8,7 +8,7 @@ const showInputError = (formElement, inputElement, errorMessage) => {
 
 const hideInputError = (formElement, inputElement) => {
   const errorElement = formElement.querySelector(
-    `.popup__${inputElement.id}-error`
+    `.popup__${inputElement.id}-error`,
   );
   inputElement.classList.remove("popup__input-error");
   errorElement.textContent = "";

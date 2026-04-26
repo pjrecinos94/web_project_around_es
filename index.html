@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
@@ -97,15 +97,13 @@
         </div>
       </div>
 
-      <template id="popup__image">
-        <div class="popup__image popup" id="places-popup">
-          <div class="popup__image-container">
-            <button class="popup__image-close-button"></button>
-            <img class="popup__image-content" />
-            <p class="popup__image-title"></p>
-          </div>
+      <div class="popup__image popup" id="popup__image">
+        <div class="popup__image-container">
+          <button class="popup__image-close-button" type="button"></button>
+          <img class="popup__image-content" alt="" />
+          <p class="popup__image-title"></p>
         </div>
-      </template>
+      </div>
 
       <header class="header">
         <img
@@ -153,6 +151,5 @@
     </div>
 
     <script type="module" src="./scripts/index.js"></script>
-    <script type="module" src="./scripts/validate.js"></script>
   </body>
 </html>
