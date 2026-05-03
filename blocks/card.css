@@ -32,6 +32,10 @@
   object-fit: cover;
 }
 
+.card__image:hover {
+  cursor: pointer;
+}
+
 .card__like-button {
   width: 21px;
   height: 19px;
