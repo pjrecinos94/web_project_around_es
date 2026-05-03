@@ -2,7 +2,17 @@
 
 **Descripción**
 
-Página interactiva desarrollada como parte del Sprint 8 de TripleTen. En esta etapa se implementa la funcionalidad del modal "Editar perfil", permitiendo abrir y cerrar la ventana emergente, rellenar el formulario con la información actual del perfil y actualizar el nombre y la descripción al guardar los cambios.
+Página interactiva desarrollada como parte del Proyecto 8 de TripleTen. El proyecto permite editar la información del perfil, generar tarjetas dinámicamente desde un array de datos, agregar nuevas tarjetas mediante un formulario, dar "me gusta", eliminar tarjetas y abrir una vista ampliada de cada imagen.
+
+**Funcionalidad**
+
+- Editar nombre y descripción del perfil.
+- Abrir y cerrar ventanas emergentes.
+- Renderizar tarjetas iniciales desde JavaScript usando un template de HTML.
+- Agregar nuevas tarjetas con título e imagen.
+- Dar "me gusta" a una tarjeta.
+- Eliminar tarjetas.
+- Abrir imágenes en una ventana emergente ampliada.
 
 **Tecnologías utilizadas**
 
@@ -11,6 +21,7 @@ Página interactiva desarrollada como parte del Sprint 8 de TripleTen. En esta e
 - JavaScript
 - Metodología BEM
 - Git y GitHub
+- GitHub Pages
 
 **Link**
 
